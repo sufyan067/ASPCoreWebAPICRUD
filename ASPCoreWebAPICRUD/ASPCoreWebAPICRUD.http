@@ -1,0 +1,6 @@
+@PatientManagement_HostAddress = http://localhost:5098
+
+GET {{PatientManagement_HostAddress}}/PatientManagement/
+Accept: application/json
+
+###
