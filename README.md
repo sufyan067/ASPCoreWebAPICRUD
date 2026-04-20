@@ -65,7 +65,7 @@ LINQ is used to query data in C#, while EF Core translates it into SQL.
 ```csharp
 _context.Appointments
     .Where(a => a.DoctorId == 1)
---- 
+```csharp
 **SQL:**
 SELECT * FROM Appointments WHERE DoctorId = 1;
 
