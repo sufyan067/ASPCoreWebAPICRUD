@@ -99,5 +99,33 @@ LEFT JOIN Appointments a ON p.PatientId = a.PatientId
 GROUP BY p.FirstName;
 ```
 ---
+## Tracking Decisions
 
+By default, EF Core tracks entities which can affect performance.
+For read-only queries, AsNoTracking() is used:
+```csharp
+_context.Patients
+    .AsNoTracking()
+    .ToListAsync();
+```
+### Benefits:
+Improved performance
+Reduced memory usage
 
+Tracking is only used when updating or saving data.
+--- 
+### Performance Considerations
+The following best practices were applied:
+
+❌ No Lazy Loading (avoids hidden queries)
+❌ No unnecessary Include
+✅ Use of Select for optimized data retrieval
+✅ Use of DTOs to control response size
+✅ Use of AsNoTracking for read-only queries
+
+### ORM Understanding
+Entity Framework Core (ORM) is used to map C# objects to database tables.
+
+LINQ is written in code
+SQL is generated internally
+Understanding SQL helps optimize EF queries
