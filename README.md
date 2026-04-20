@@ -1,14 +1,14 @@
 # ASPCoreWebAPICRUD
 # Patient Management API (Week 7 - EF Core + SQL Integration)
 
-## 📌 Overview
+##  Overview
 This project is a backend API built using ASP.NET Core and Entity Framework Core following a clean architecture approach.
 
 The purpose of this project is to understand how EF Core works internally, how it maps to SQL, and how to write efficient queries.
 
 ---
 
-## 🧱 Architecture
+##  Architecture
 
 The project follows a layered architecture:
 # Controller → Service → Repository → DbContext → Database
@@ -21,7 +21,7 @@ The project follows a layered architecture:
 
 ---
 
-## 🗂️ Entities
+##  Entities
 
 The system includes the following entities:
 
@@ -55,7 +55,7 @@ Fluent API is used to configure entities:
 
 ---
 
-## 🔍 LINQ vs SQL
+##  LINQ vs SQL
 
 LINQ is used to query data in C#, while EF Core translates it into SQL.
 
@@ -117,11 +117,11 @@ Tracking is only used when updating or saving data.
 ### Performance Considerations
 The following best practices were applied:
 
-❌ No Lazy Loading (avoids hidden queries)
-❌ No unnecessary Include
-✅ Use of Select for optimized data retrieval
-✅ Use of DTOs to control response size
-✅ Use of AsNoTracking for read-only queries
+No Lazy Loading (avoids hidden queries)
+No unnecessary Include
+Use of Select for optimized data retrieval
+Use of DTOs to control response size
+Use of AsNoTracking for read-only queries
 ### Migrations
 Migrations are used to keep the database schema in sync with code.
 
@@ -143,4 +143,4 @@ Relationship handling
 Efficient query writing
 Understanding of LINQ to SQL translation
 Avoidance of common ORM performance pitfalls
----
+
