@@ -67,5 +67,37 @@ _context.Appointments
     .Where(a => a.DoctorId == 1)
 ```
 **SQL:**
+```sql
 SELECT * FROM Appointments WHERE DoctorId = 1;
+```
+### Example 2: Get patients with no appointments
+**LINQ:**
+```csharp
+_context.Patients
+    .Where(p => !p.Appointments.Any())
+```
+**SQL:**
+```sql
+SELECT p.*
+FROM Patients p
+LEFT JOIN Appointments a ON p.PatientId = a.PatientId
+WHERE a.PatientId IS NULL;
+```
+### Example 3: Get patient appointment count
+```csharp
+_context.Patients
+    .Select(p => new {
+        p.FirstName,
+        Count = p.Appointments.Count
+    })
+```
+**SQL:**
+```sql
+SELECT p.FirstName, COUNT(a.AppointmentId)
+FROM Patients p
+LEFT JOIN Appointments a ON p.PatientId = a.PatientId
+GROUP BY p.FirstName;
+```
+---
+
 
