@@ -31,7 +31,7 @@ The system includes the following entities:
 
 ---
 
-## 🔗 Relationships
+##  Relationships
 
 The following relationships are implemented using Fluent API:
 
@@ -44,7 +44,7 @@ The following relationships are implemented using Fluent API:
 
 ---
 
-## ⚙️ Entity Configuration
+##  Entity Configuration
 
 Fluent API is used to configure entities:
 
