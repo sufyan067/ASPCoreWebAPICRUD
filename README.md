@@ -122,6 +122,12 @@ The following best practices were applied:
 ✅ Use of Select for optimized data retrieval
 ✅ Use of DTOs to control response size
 ✅ Use of AsNoTracking for read-only queries
+### Migrations
+Migrations are used to keep the database schema in sync with code.
+
+Commands used:
+Add-Migration MigrationName
+Update-Database
 
 ### ORM Understanding
 Entity Framework Core (ORM) is used to map C# objects to database tables.
@@ -129,3 +135,12 @@ Entity Framework Core (ORM) is used to map C# objects to database tables.
 LINQ is written in code
 SQL is generated internally
 Understanding SQL helps optimize EF queries
+### Conclusion
+This project demonstrates:
+
+Proper EF Core usage
+Relationship handling
+Efficient query writing
+Understanding of LINQ to SQL translation
+Avoidance of common ORM performance pitfalls
+---
