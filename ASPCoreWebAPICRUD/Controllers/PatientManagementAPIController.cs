@@ -60,5 +60,17 @@ namespace PatientManagement.Controllers
             return Ok();
             //return NoContent();  -> Standard REST response for delete
         }
+        [HttpGet("with-appointments")]
+        public async Task<IActionResult> GetPatientsWithAppointments()
+        {
+            var data = await _patientService.GetPatientsWithAppointments();
+            return Ok(data);
+        }
+        [HttpGet("patient-with-No-appointment")]
+        public async Task<IActionResult> GetPatientWithNoAppointment()
+        {
+            var data = await _patientService.GetPatientWithNoAppointment();
+            return Ok(data);
+        }
     }
 }

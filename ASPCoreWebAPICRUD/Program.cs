@@ -3,11 +3,15 @@ using PatientManagement.Repositories;
 using PatientManagement.Services;
 using Microsoft.EntityFrameworkCore;
 using PatientManagement.Middleware;
-using PatientManagement.Models.Data;
+using PatientManagement.Data;
 var builder = WebApplication.CreateBuilder(args);
 //  Dependency Injection
 builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+builder.Services.AddScoped<IDoctorService, DoctorService>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 
 // DbContext (FIXED)  
 builder.Services.AddDbContext<PatientDbContext>(options =>

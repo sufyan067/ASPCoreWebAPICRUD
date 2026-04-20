@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+using PatientManagement.DTOs;
 using PatientManagement.Repositories;
+using System.Threading.Tasks;
 
 namespace PatientManagement.Services
 {
@@ -38,6 +39,14 @@ namespace PatientManagement.Services
         {
             return await _repo.UpdatePatient(id, pat);
 
+        }
+        public async Task<List<PatientWithAppointmentsDto>> GetPatientsWithAppointments()
+        {
+            return await _repo.GetPatientsWithAppointments();
+        }
+        public async Task<List<PatientWithNoAppointmentDto>> GetPatientWithNoAppointment()
+        {
+            return await _repo.GetPatientWithNoAppointment();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PatientManagement.Models.Data;
+using PatientManagement.Data;
+using PatientManagement.DTOs;
 
 namespace PatientManagement.Repositories
 {
@@ -37,7 +38,9 @@ namespace PatientManagement.Repositories
 
         public async Task<List<Patient>> GetPatients()
         {
-            return await _context.Patients.ToListAsync();
+            return await _context.Patients
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public async Task<Patient?> UpdatePatient(int id, Patient pat)
@@ -50,5 +53,31 @@ namespace PatientManagement.Repositories
 
             return pat;
         }
+        public async Task<List<PatientWithAppointmentsDto>> GetPatientsWithAppointments()
+        {
+            return await _context.Patients
+                .AsNoTracking()
+                .Select(p => new PatientWithAppointmentsDto
+                {
+                    PatientId = p.PatientId,
+                    FirstName = p.FirstName,
+                    AppointmentCount = p.Appointments.Count
+                })
+                .ToListAsync();
+        }
+        public async Task<List<PatientWithNoAppointmentDto>> GetPatientWithNoAppointment()
+        {
+            return await _context.Patients.AsNoTracking()
+                .Where(p=>!p.Appointments.Any())
+                .Select(p=>new PatientWithNoAppointmentDto
+                {
+                    PatientId = p.PatientId,
+                    FirstName = p.FirstName,
+                    AppointmentCount= 0
+                })
+                .ToListAsync();
+
+        }
+
     }
 }
