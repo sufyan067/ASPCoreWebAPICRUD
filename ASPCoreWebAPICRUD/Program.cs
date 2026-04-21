@@ -13,7 +13,7 @@ builder.Services.AddScoped<IDoctorService, DoctorService>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 
-// DbContext (FIXED)  
+// DbContext
 builder.Services.AddDbContext<PatientDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("dbcs")));
 // Add services to the container.

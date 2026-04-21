@@ -57,6 +57,7 @@ namespace PatientManagement.Repositories
         {
             return await _context.Patients
                 .AsNoTracking()
+                .Where(p => p.Appointments.Any())
                 .Select(p => new PatientWithAppointmentsDto
                 {
                     PatientId = p.PatientId,

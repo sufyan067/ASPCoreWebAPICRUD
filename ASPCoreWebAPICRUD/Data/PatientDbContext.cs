@@ -19,6 +19,7 @@ public class PatientDbContext : DbContext
         modelBuilder.ApplyConfiguration(new PatientConfiguration());
         modelBuilder.ApplyConfiguration(new DoctorConfiguration());
         modelBuilder.ApplyConfiguration(new AppointmentConfiguration());
+        //  modelBuilder.ApplyConfigurationsFromAssembly(typeof(PatientDbContext).Assembly);   // New way 
 
     }
 }
