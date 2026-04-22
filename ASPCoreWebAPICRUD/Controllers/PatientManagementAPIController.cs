@@ -66,7 +66,7 @@ namespace PatientManagement.Controllers
             var data = await _patientService.GetPatientsWithAppointments();
             return Ok(data);
         }
-        [HttpGet("patient-with-No-appointment")]
+        [HttpGet("patient-with-No-appointments")]
         public async Task<IActionResult> GetPatientWithNoAppointment()
         {
             var data = await _patientService.GetPatientWithNoAppointment();
